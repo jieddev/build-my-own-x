@@ -8,6 +8,7 @@ const rl = readline.createInterface({
 
 function startTerminal() {
   rl.question("$ ", (command) => {
+    
     if (command.startsWith("echo ")){
       let string = command.slice(4, command.length);
       let trimmedString = string.trimStart();
