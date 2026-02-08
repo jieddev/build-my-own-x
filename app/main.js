@@ -7,9 +7,12 @@ const rl = readline.createInterface({
 
 function startTerminal() {
   rl.question("$ ", (command) => {
+    if(command == "exit") {
+      rl.close();
+    }
     console.log(`${command}: command not found`);
-    // rl.close();
     startTerminal();
+    
   });
 }
 
