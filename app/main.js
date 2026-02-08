@@ -5,7 +5,13 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
-rl.question("$ ", (command) => {
-  console.log(`${command}: command not found`);
-  rl.close();
-});
+function startTerminal() {
+  rl.question("$ ", (command) => {
+    console.log(`${command}: command not found`);
+    // rl.close();
+    startTerminal();
+  });
+}
+
+startTerminal();
+
