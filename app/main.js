@@ -10,7 +10,8 @@ function startTerminal() {
   rl.question("$ ", (command) => {
     if (command.startsWith("echo ")){
       let string = command.slice(4, command.length);
-      console.log(string);
+      let trimmedString = string.trimStart();
+      console.log(trimmedString);
       startTerminal();
     } 
     else if(command == "exit") {
