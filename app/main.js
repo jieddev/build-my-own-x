@@ -10,11 +10,11 @@ function startTerminal() {
   rl.question("$ ", (command) => {
     if(command == "exit") {
       rl.close();
+    } else {
+      console.log(`${command}: command not found`);
+      startTerminal();
     }
   
-    console.log(`${command}: command not found`);
-    // rl.close();
-    startTerminal();
   });
 
 }
