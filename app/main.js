@@ -8,15 +8,26 @@ const rl = readline.createInterface({
 
 function startTerminal() {
   rl.question("$ ", (command) => {
-    if(command == "exit") {
+    if (command.startsWith("echo ")){
+      let string = command.slice(4, command.length);
+      console.log(string);
+      startTerminal();
+    } 
+    else if(command == "exit") {
       rl.close();
-    } else {
+    } 
+    else {
       console.log(`${command}: command not found`);
       startTerminal();
     }
   
   });
 
+}
+
+function removeStartingWhiteSpaces(command) {
+  return command.trimStart();
+  
 }
 
 startTerminal();
